@@ -31,7 +31,6 @@ public class Login extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Start MainPageActivity when login button is clicked
                 Intent intent = new Intent(Login.this, MainPageActivity.class);
                 startActivity(intent);
             }
@@ -40,7 +39,6 @@ public class Login extends AppCompatActivity {
         textViewForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Start ForgetPasswordActivity when "Forgot Password?" is clicked
                 Intent intent = new Intent(Login.this, ForgetPasswordActivity.class);
                 startActivity(intent);
             }
@@ -49,7 +47,6 @@ public class Login extends AppCompatActivity {
         textViewSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Start MainActivity2 (signup page) when "Sign Up" is clicked
                 Intent intent = new Intent(Login.this, MainActivity2.class);
                 startActivity(intent);
             }

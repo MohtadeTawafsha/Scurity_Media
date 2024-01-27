@@ -3,8 +3,10 @@ package com.example.scurity_media;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -17,18 +19,19 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final int PICK_PHOTO_REQUEST = 1;
     private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 2;
-
     private ArrayList<Uri> selectedPhotosList;
     private ArrayList<Uri> originalPhotosList;
     private PhotoAdapter photoAdapter;
     private RecyclerView photoRecyclerView;
-    private ImageView selectedPhotoImageView;
+    private EncryptionUtils encryptionUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         Button btnDecryption = findViewById(R.id.btnDecryotion);
 
         photoRecyclerView = findViewById(R.id.photoRecyclerView);
-        selectedPhotoImageView = findViewById(R.id.selectedPhotoImageView);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         photoRecyclerView.setLayoutManager(layoutManager);
@@ -49,12 +51,14 @@ public class MainActivity extends AppCompatActivity {
         photoAdapter = new PhotoAdapter(selectedPhotosList);
         photoRecyclerView.setAdapter(photoAdapter);
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                    MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
-        }
+        encryptionUtils = new EncryptionUtils();
+
+//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+//                != PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(this,
+//                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+//                    MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+//        }
 
         btnSelectPhotos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,31 +66,52 @@ public class MainActivity extends AppCompatActivity {
                 openGalleryForPhotos();
 
             }
-
-
-
         });
 
         btnDecryption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Check if there are any selected photos
-                if (selectedPhotosList.isEmpty()) {
-                    showToast("No photos selected");
-                    return;
+                try {
+                    if (selectedPhotosList.isEmpty()) {
+                        showToast("No photos selected");
+                        return;
+                    }
+
+                    Uri originalUri = originalPhotosList.get(originalPhotosList.size() - 1);
+                    showToast("Selected photo URI: " + originalUri.toString());
+
+                    // Get the path of the selected image
+                    String imagePath = getPathFromUri(originalUri);
+                    showToast("Image path: " + imagePath);
+
+                    if (imagePath == null) {
+                        showToast("Image path is null");
+                        return;
+                    }
+
+                    // Read the content of the image file
+                    byte[] encryptedBytes = readContentFromFile(imagePath);
+                    showToast("Encrypted content read successfully");
+
+                    if (encryptedBytes == null) {
+                        showToast("Encrypted content is null");
+                        return;
+                    }
+
+                    // Decrypt the content
+                    String decryptedBytes = encryptionUtils.decrypt(String.valueOf(encryptedBytes));
+                    String decryptedContent = new String(decryptedBytes);
+
+                    // Check the decrypted content
+                    showToast("Decrypted content: " + decryptedContent);
+
+                    // Update the UI or perform any further actions with decrypted content
+                    showToast("Decryption successful");
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    showToast("Decryption failed: " + e.getMessage()); // Print the exception message
                 }
-
-                // Assuming you want to reveal the latest added photo
-                Uri originalUri = originalPhotosList.get(originalPhotosList.size() - 1);
-
-                // Use the original URI to display the image
-                selectedPhotoImageView.setImageURI(originalUri);
-
-                // Make the RecyclerView and ImageView visible
-                photoRecyclerView.setVisibility(View.VISIBLE);
-                selectedPhotoImageView.setVisibility(View.VISIBLE);
-
-                showToast("Decryption successful");
             }
         });
     }
@@ -95,6 +120,12 @@ public class MainActivity extends AppCompatActivity {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
         startActivityForResult(photoPickerIntent, PICK_PHOTO_REQUEST);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+        }
     }
 
     @Override
@@ -126,6 +157,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
+    private String getPathFromUri(Uri uri) {
+        String[] projection = {MediaStore.Images.Media.DATA};
+        Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+            int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            String filePath = cursor.getString(columnIndex);
+            cursor.close();
+            return filePath;
+        } else {
+            showToast("Failed to retrieve file path");
+            return null;
+        }
+    }
+
+    private byte[] readContentFromFile(String filePath) {
+        byte[] content = null;
+        try {
+            FileInputStream fis = new FileInputStream(filePath);
+            int fileSize = fis.available();
+            content = new byte[fileSize];
+            fis.read(content);
+            fis.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return content;
     }
 }

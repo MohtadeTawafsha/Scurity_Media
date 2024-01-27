@@ -27,10 +27,6 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         btnext= findViewById(R.id. btnext);
         phoneoremail= findViewById(R.id.     phoneoremail);
 
-
-
-
-
         btback  .setOnClickListener(new View.OnClickListener() {
 
             @Override
