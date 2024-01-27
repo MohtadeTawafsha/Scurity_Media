@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    android:background="#42A5F5"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainPageActivity">
+
+
+    <Button
+        android:id="@+id/btsettings"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="230dp"
+        android:textSize="25dp"
+        android:textColor="#42A5F5"
+        android:backgroundTint="@color/white"
+        android:text="Settings"
+        android:onClick="settings"
+        />
+
+    <Button
+        android:id="@+id/btphotos"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textSize="25dp"
+        android:textColor="#42A5F5"
+        android:backgroundTint="@color/white"
+        android:text="Photos"
+        />
+
+    <Button
+        android:id="@+id/btvideos"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textSize="25dp"
+        android:textColor="#42A5F5"
+        android:backgroundTint="@color/white"
+        android:text="Videos"
+        />
+
+
+    <!--    </LinearLayout>-->
+</LinearLayout>

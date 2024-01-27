@@ -1,0 +1,99 @@
+<!-- res/layout/activity_login.xml -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".Login">
+
+
+    <ImageView
+        android:id="@+id/myImageView"
+        android:layout_width="180dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/mediaa" />
+
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:hint="Username"
+        android:background="#B6CFE3"
+        android:textColorHint="#7A000000"
+        />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:hint="Password"
+        android:background="#B6CFE3"
+        android:textColorHint="#7A000000"
+        android:inputType="textPassword"
+        />
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textSize="18dp"
+        android:backgroundTint="#42A5F5"
+        android:text="Login"
+        />
+
+    <TextView
+        android:id="@+id/forgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Forgot Password?"
+        android:textColor="#42A5F5"
+        android:textSize="20sp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="190dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You don't have an account?"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Sign Up"
+            android:textColor="#42A5F5"
+            android:textSize="25sp"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".MainActivity2">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:fontFamily="monospace"
+        android:text="Edit information"
+        android:textAlignment="center"
+        android:textColor="#3897f0"
+        android:textStyle="bold"
+        android:textSize="35dp" />
+
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:hint="Username"
+        android:background="#B6CFE3"
+        android:textColorHint="#7A000000"
+        />
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:hint="Phone"
+        android:background="#B6CFE3"
+        android:textColorHint="#7A000000"
+        android:inputType="textPassword"
+        />
+    <EditText
+        android:id="@+id/editTextOldPassword"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:hint="Old password"
+        android:background="#B6CFE3"
+        android:textColorHint="#7A000000"
+        android:inputType="textPassword"
+        />
+    <EditText
+        android:id="@+id/editTextNewPassword"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:hint="New password"
+        android:background="#B6CFE3"
+        android:textColorHint="#7A000000"
+        android:inputType="textPassword"
+        />
+    <EditText
+        android:id="@+id/editTextConfirmNewPassword"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:hint="Confirm new password"
+        android:background="#B6CFE3"
+        android:textColorHint="#7A000000"
+        android:inputType="textPassword"
+        />
+    <Button
+        android:id="@+id/buttonEditEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:textSize="18dp"
+        android:backgroundTint="#FD7184B6"
+        android:text="Edit Email"
+        />
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:textSize="18dp"
+        android:backgroundTint="#42A5F5"
+        android:text="Save"
+        />
+
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:textSize="18dp"
+        android:backgroundTint="#42A5F5"
+        android:text="Back"
+        />
+
+
+</LinearLayout>
