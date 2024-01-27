@@ -41,14 +41,11 @@ public class ForgetPasswordActivity extends AppCompatActivity {
 
 
 
-        btnext  .setOnClickListener(new View.OnClickListener() {
+        btnext.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 String input =  phoneoremail.getText().toString().trim();
-
-                // Check if the input is empty
-                // Check if the input is empty
                 if (input.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Input cannot be empty", Toast.LENGTH_SHORT).show();
                 } else {
@@ -64,11 +61,9 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Invalid email or phone number", Toast.LENGTH_SHORT).show();
                         }
                     }
-
                     Intent ChangePasswordFotgetActivity = new Intent(ForgetPasswordActivity.this, ChangePasswordFotgetActivity.class);
                     startActivity(ChangePasswordFotgetActivity);
                     ForgetPasswordActivity.this.finish();
-
                 }
             }
         });

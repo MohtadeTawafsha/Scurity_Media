@@ -36,7 +36,7 @@
         android:layout_below="@id/btnDecryotion"
         android:layout_gravity="center"
         android:visibility="gone"
-    android:adjustViewBounds="true"/>
+        android:adjustViewBounds="true"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/photoRecyclerView"
@@ -45,6 +45,6 @@
         android:background="@color/white"
         android:layout_gravity="center"
         android:visibility="gone"
-    android:orientation="vertical"
+        android:orientation="vertical"
         android:layout_marginTop="2dp"/>
 </LinearLayout>

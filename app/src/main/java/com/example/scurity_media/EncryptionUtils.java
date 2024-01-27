@@ -7,7 +7,6 @@ import android.util.Base64;
 
 public class EncryptionUtils {
 
-    // Replace with your own key
     private static final String SECRET_KEY = "your_secret_key";
 
     public static String encrypt(String input) throws Exception {
