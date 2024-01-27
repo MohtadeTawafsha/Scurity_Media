@@ -1,10 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="editTextPhone" type="id">editTextPhone</item>
-    <item name="editTextOldPassword" type="id">editTextOldPassword</item>
-    <item name="editTextNewPassword" type="id">editTextNewPassword</item>
-    <item name="editTextConfirmNewPassword" type="id">editTextConfirmNewPassword</item>
-    <item name="buttonEditEmail" type="id">buttonEditEmail</item>
-    <item name="button_save" type="id">button_save</item>
-    <item name="button_back" type="id">button_back</item>
 </resources>

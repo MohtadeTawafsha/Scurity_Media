@@ -32,6 +32,28 @@ public class MainPageActivity extends AppCompatActivity {
 
             }
         });
+        btvideos.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent EditEmailActivity = new Intent(MainPageActivity.this,MainActivity.class);
+                startActivity(EditEmailActivity);
+                MainPageActivity.this.finish();
+
+            }
+        });
+        btphotos.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent EditEmailActivity = new Intent(MainPageActivity.this,MainActivity.class);
+                startActivity(EditEmailActivity);
+                MainPageActivity.this.finish();
+
+            }
+        });
 
 
 

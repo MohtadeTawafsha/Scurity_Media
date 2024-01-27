@@ -1,6 +1,8 @@
 package com.example.scurity_media;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +16,7 @@ public class Login extends AppCompatActivity {
     private Button buttonLogin;
     private TextView textViewForgotPassword, textViewSignUp;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
