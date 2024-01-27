@@ -13,22 +13,24 @@
         android:layout_height="300dp"
         android:layout_marginTop="15dp"
         android:scaleType="centerCrop"/>
+
     <Button
-        android:text="download"
+        android:text="Download"
+        android:id="@+id/btnDownload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:textSize="18dp"
         android:backgroundTint="#42A5F5"/>
+
     <Button
         android:text="Delete"
+        android:id="@+id/btnDelete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:textSize="18dp"
         android:backgroundTint="#42A5F5"/>
-
-
 </LinearLayout>
