@@ -60,7 +60,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openGalleryForPhotos();
+
             }
+
+
+
         });
 
         btnDecryption.setOnClickListener(new View.OnClickListener() {

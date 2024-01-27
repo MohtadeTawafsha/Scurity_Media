@@ -32,6 +32,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
         holder.photoImageView.setImageURI(photoUri);
     }
 
+
     @Override
     public int getItemCount() {
         return photosList.size();
