@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/btnSelectPhotos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:layout_marginTop="27dp"
+        android:backgroundTint="#42A5F5"
+        android:text="Upload"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/btnDecryotion"
+        android:text="Decryotion"
+        android:layout_margin="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="18dp"
+        android:backgroundTint="#42A5F5"/>
+
+    <ImageView
+        android:id="@+id/selectedPhotoImageView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/btnDecryotion"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/photoRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_marginTop="2dp"/>
+</LinearLayout>
